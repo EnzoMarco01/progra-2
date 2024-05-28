@@ -2,34 +2,44 @@ import algoritmos.MetodosCola;
 import algoritmos.MetodosColaPrioridad;
 import api.ColaPrioridadTDA;
 import api.ColaTDA;
+import api.PilaColaParesTDA;
 import impl.ColaEstatica1;
 import impl.ColaPrioridadDinamica1;
+import impl.PilaColaParesDinamica;
 
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        MetodosColaPrioridad mColaP = new MetodosColaPrioridad();
-        ColaPrioridadTDA cola1 = new ColaPrioridadDinamica1();
-        ColaPrioridadTDA cola2 = new ColaPrioridadDinamica1();
+        PilaColaParesTDA simu = new PilaColaParesDinamica();
 
-        cola1.inicializarCola();
-        cola2.inicializarCola();
+        simu.inicializar();
 
-//        cola1.acolar(5, 2);
-        cola1.acolar(9, 1);
-        cola1.acolar(6, 2);
-        cola1.acolar(3, 3);
+        for (int i = 0; i < 10; i++){
+            System.out.println(i);
+            simu.guardar(i);
+        }
 
-        cola2.acolar(9, 1);
-        cola2.acolar(6, 2);
-        cola2.acolar(3, 3);
+        simu.guardar(99);
 
-        System.out.println("------");
+        for (int i = 0; i < 20;i = i+2){
+            simu.guardar(i);
+        }
 
-        System.out.println(mColaP.sonIguales(cola1, cola2));
+        System.out.print("guardar: ");
+        simu.imprimir();
 
+        for (int i = 0; i < 7; i++){
+            simu.sacar();
+        }
+        System.out.print("sacar: ");
+        simu.imprimir();
 
+        System.out.print("mostrar: ");
+        System.out.println(simu.mostrar());
+        
+        System.out.print("esta vacia: ");
+        System.out.println(simu.vacia());
     }
 }
 

@@ -3,10 +3,12 @@ import api.PilaTDA;
 
 public class PilaDinamica implements PilaTDA {
     Nodo primero;
+    
     @Override
     public void inicializarPila() {
         primero = null;
     }
+
     @Override
     public void apilar(int x) {
         Nodo aux = new Nodo();
@@ -14,6 +16,7 @@ public class PilaDinamica implements PilaTDA {
         aux.sig = primero;
         primero = aux;
     }
+
     @Override
     public void desapilar() {
         primero = primero.sig;
